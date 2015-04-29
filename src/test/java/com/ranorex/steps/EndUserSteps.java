@@ -24,7 +24,7 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void isHomePage() {
-        ranorexMainPage.openAt("http://ranorex.com/web-testing-examples/vip/");
+        ranorexMainPage.open();
     }
 
     @Step
