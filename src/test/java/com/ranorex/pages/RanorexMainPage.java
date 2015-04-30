@@ -34,6 +34,9 @@ public class RanorexMainPage extends PageObject {
     @FindBy(id = "connect")
     private WebElementFacade btnDisconnect;
 
+    @FindBy(xpath = "//table[@id='VIPs']/tbody/tr[2]/td[2]")
+    private WebElementFacade rowFirstNameInTheTable;
+
     public void setFirstName(String firstName) {
         fieldFirstName.sendKeys(firstName);
     }
@@ -50,11 +53,31 @@ public class RanorexMainPage extends PageObject {
         btnAdd.click();
     }
 
+    public String getFirstNameFromTheTable() {
+        return rowFirstNameInTheTable.getText();
+    }
+
+    public String getTextConnectButton() {
+        return btnDisconnect.getAttribute("value");
+    }
+
     public void clickDelete() {
         btnDelete.click();
     }
 
     public void clickClear() {
         btnClear.click();
+    }
+
+    public void clickDisconnect() {
+        btnDisconnect.click();
+    }
+
+    public void setGender(String strGender) {
+        for (WebElementFacade el : gender) {
+            if (el.getAttribute("value").equals(strGender)) {
+                el.click();
+            }
+        }
     }
 }
