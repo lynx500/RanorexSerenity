@@ -4,6 +4,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -36,6 +37,9 @@ public class RanorexMainPage extends PageObject {
 
     @FindBy(xpath = "//table[@id='VIPs']/tbody/tr[2]/td[2]")
     private WebElementFacade rowFirstNameInTheTable;
+
+    @FindBy(id = "Category")
+    private WebElementFacade category;
 
     public void setFirstName(String firstName) {
         fieldFirstName.sendKeys(firstName);
@@ -79,5 +83,10 @@ public class RanorexMainPage extends PageObject {
                 el.click();
             }
         }
+    }
+
+    public void setCategory(String strCategory) {
+        Select cat = new Select(category);
+        cat.selectByVisibleText(strCategory);
     }
 }

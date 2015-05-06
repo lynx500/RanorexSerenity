@@ -5,6 +5,7 @@ import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.Concurrent;
@@ -50,6 +51,7 @@ public class RanorexMainPageStory {
     @Test
     public void userCanAddPersonToRanorex() {
         endUserSteps.openHomePage();
+        endUserSteps.setCategory("Music");
         endUserSteps.addUser(fname, lname, gender);
         endUserSteps.shouldChangeVipCount("VIP count: 1");
         endUserSteps.shouldAddRowInTheUserTable(fname);

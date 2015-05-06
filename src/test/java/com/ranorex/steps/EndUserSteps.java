@@ -74,5 +74,8 @@ public class EndUserSteps extends ScenarioSteps {
         clickAdd();
     }
 
-
+    @Step
+    public void setCategory(String strCategory) {
+        ranorexMainPage.setCategory(strCategory);
+    }
 }
